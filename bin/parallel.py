@@ -15,5 +15,5 @@ if __name__ == '__main__':
             count = int(sys.argv[1])
 
     print "Pool size:", count
-    commands = [s.strip() for s in sys.stdin.readlines()]
+    commands = [s.strip() for s in sys.stdin.readlines() if not s.startswith('#')]
     print multiprocessing.Pool(count).map(os.system, commands)
